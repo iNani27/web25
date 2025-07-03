@@ -8,12 +8,34 @@
                 margin: 0;
                 overflow: hidden;
             }
+            footer{
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                background-color: #DDDCDB; /*gris porcelain*/
+            }
+            footer p {
+                text-align: center;
+                font-family : cursive;
+            }
             canvas {
                 display: block;
             }
         </style>
     </head>
     <body>
+        <footer>
+            <p>Créé à l'a.s.b.l. <a href="http://www.fobagra.net/" 
+                                    title="FOBAGRA est une a.s.b.l. qui lutte contre la fracture numérique en mettant l'ére numérique à portée de tous" 
+                                    target="_blank">
+                    FOBAGRA
+                </a>
+                &nbsp;&copy2025 - 
+                Quand Christian dessine avec des mots, Isabelle dompte le code, et Faduma déniche des pépites sur web — la magie opère. 🎨✨ 
+                Une création collaborative à vocation pédagogique, inspirée de "<a href="https://immersive-g.com/" target="_blank">Immersive Garden</a>".
+            </p>
+
+        </footer>
         <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
         <script id="vertexShader" type="x-shader/x-vertex">
@@ -113,15 +135,6 @@
 
             init();
         </script>
-        <footer style="z-index: 1; vertical-align: middle;">
-            <p>Créé à l'a.s.b.l. <a href="http://www.fobagra.net/" 
-                                     title="FOBAGRA est une a.s.b.l. qui lutte contre la fracture numérique en mettant l'ére numérique à portée de tous" 
-                                     target="_blank">
-                FOBAGRA
-            </a>
-                &amp;nbsp;&amp;copy2025 - en bonne intelligence par  
-                Christian et Isabelle
-            </p>
-        </footer>
+
     </body>
 </html>
