@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Halo Reveal Effect</title>
+        <style>
+            html, body {
+                margin: 0;
+                overflow: hidden;
+            }
+            canvas {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script id="vertexShader" type="x-shader/x-vertex">
+            varying vec2 vUv;
+            void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        </script>
+        <script id="fragmentShader" type="x-shader/x-fragment">
+            uniform sampler2D uBase;
+            uniform sampler2D uReveal;
+            uniform vec2 uMouse;
+            uniform float uRadius;
+            uniform float uFeather;
+            uniform float uTime;
+            uniform vec2 uResolution;
+            varying vec2 vUv;
+
+            float random(vec2 st) {
+            return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+            }
+
+            float noise(vec2 st) {
+            vec2 i = floor(st);
+            vec2 f = fract(st);
+            float a = random(i);
+            float b = random(i + vec2(1.0, 0.0));
+            float c = random(i + vec2(0.0, 1.0));
+            float d = random(i + vec2(1.0, 1.0));
+            vec2 u = f*f*(3.0 - 2.0*f);
+            return mix(a, b, u.x) + (c - a)*u.y*(1.0 - u.x) + (d - b)*u.x*u.y;
+            }
+
+            void main() {
+            vec2 fragCoord = vUv * uResolution;
+            float dist = distance(fragCoord, uMouse);
+            float n = noise(vUv * 20.0 + uTime * 0.2) * 10.0;
+            float animatedRadius = uRadius + sin(uTime * 3.0) * 10.0 + n;
+            float mask = smoothstep(animatedRadius + uFeather, animatedRadius - uFeather, dist);
+            vec4 baseColor = texture2D(uBase, vUv);
+            vec4 revealColor = texture2D(uReveal, vUv);
+            gl_FragColor = mix(revealColor, baseColor, mask);
+            }
+        </script>
+
+        <script>
+            let scene, camera, renderer, uniforms;
+            const init = async () => {
+                scene = new THREE.Scene();
+                camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+                camera.position.z = 1;
+
+                renderer = new THREE.WebGLRenderer({antialias: true});
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                document.body.appendChild(renderer.domElement);
+
+                const loader = new THREE.TextureLoader();
+                const baseTex = await loader.loadAsync('images/porcelain.jpg');
+                const revealTex = await loader.loadAsync('images/cubes-6764745_1920_Daniel_Roberts.jpg');
+
+                uniforms = {
+                    uBase: {value: baseTex},
+                    uReveal: {value: revealTex},
+                    uMouse: {value: new THREE.Vector2(window.innerWidth / 2, window.innerHeight / 2)},
+                    uRadius: {value: 70},
+                    uFeather: {value: 90},
+                    uTime: {value: 0},
+                    uResolution: {value: new THREE.Vector2(window.innerWidth, window.innerHeight)}
+                };
+
+                const material = new THREE.ShaderMaterial({
+                    uniforms,
+                    vertexShader: document.getElementById('vertexShader').textContent,
+                    fragmentShader: document.getElementById('fragmentShader').textContent
+                });
+
+                const geometry = new THREE.PlaneGeometry(2, 2);
+                const mesh = new THREE.Mesh(geometry, material);
+                scene.add(mesh);
+
+                window.addEventListener('mousemove', e => {
+                    const x = e.clientX;
+                    const y = renderer.domElement.height - e.clientY;
+                    gsap.to(uniforms.uMouse.value, {x, y, duration: 0.3, ease: 'power2.out'});
+                });
+
+                animate();
+            };
+
+            const clock = new THREE.Clock();
+            function animate() {
+                requestAnimationFrame(animate);
+                uniforms.uTime.value += clock.getDelta();
+                renderer.render(scene, camera);
+            }
+
+            init();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8"> 
+        <title>HTML & CSS</title>
+        <meta name="description" content="Description de la page">
+        <meta name="keywords" content="web, html5, css3, media queries">
+        <meta name="author" content="iNani27">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/menu_horizontal.css">
+        <link rel="stylesheet" href="styles/general.css">
+        <link rel="stylesheet" href="styles/galerie_fluide.css">
+        <link rel="stylesheet" href="styles/responsive.css">
+        <style>
+            .highlight {
+                background-color: #e0f0ff;
+                padding: 0.5rem;
+                border-left: 4px solid #007acc;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Nom du site</h1>
+            <a href="index.html" title="Accueil"><img src="images/logo.png" alt="Logo du site" /></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" title="Accueil">Accueil</a></li>
+                    <li><a href="articles.html" title="Articles">Articles</a></li>
+                    <li><a href="timeline.html" title="Timeline">CV</a></li>
+                    <li><a href="media.html" title="Media">Media</a></li>
+                    <li><a href="contact.html" title="Contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            <h2>Introduction au Web</h2>
+            <p>
+                Comprendre les origines du Web, son lien avec Internet, et le rôle du W3C dans la standardisation.
+            </p>
+            <article>
+                <h3>1. Internet ≠ Web</h3>
+                <p>
+                    Avant tout, <b>Internet</b> est l’infrastructure : un réseau mondial d’ordinateurs connectés.
+                </p>
+                <p>
+                    Le <b>Web (World Wide Web)</b> est un <b>service</b> qui fonctionne sur Internet. Il permet de consulter des pages via un navigateur.
+                </p>
+                <p><strong>Le Web</strong> est un service qui utilise Internet pour afficher des pages via un navigateur.</p>
+            </article>
+            <article>
+                <h3>2. Tim Berners-Lee : l'inventeur du Web</h3>
+                <p>
+                    En 1989, Tim Berners-Lee travaille au CERN et cherche un moyen simple de partager des documents scientifiques.
+                </p>
+                <p>Il crée :</p>
+                <ul>
+                    <li><strong>HTML</strong> (HyperText Markup Language) : le langage pour structurer les pages web => pour structurer les pages</li>
+                    <li><strong>HTTP</strong> (HyperText Transfer Protocol) : le protocole de communication => pour transmettre les données</li>
+                    <li><strong>URL</strong> (Uniform Resource Locator) : l'adresse unique d’une ressource => pour localiser les ressources</li>
+                </ul>
+                <p class="highlight">
+                    <strong>WEB &lt; Internet</strong> : le Web est une application qui fonctionne grâce à Internet.</p>
+
+            </article>
+            <article>
+
+                <h3>3. W3C : le garant des standards</h3>
+                <p>En 1994, Tim Berners-Lee fonde le <strong>W3C (World Wide Web Consortium)</strong>.</p>
+                <p>Son rôle : définir les <strong>standards du Web</strong> pour assurer l’accessibilité, la compatibilité et l’ouverture des technologies web. 
+                    <br>
+                    => le Web reste ouvert, accessible, et compatible entre navigateurs.
+                </p>
+            </article>
+            <article>
+                <h4>En résumé</h4>
+                <p class="highlight">Tim Berners-Lee a inventé le Web avec HTML, sur Internet, et a fondé le W3C pour garantir son bon fonctionnement.
+                </p>
+            </article>
+        </section>
+
+
+        <footer>
+            <p>Créé à l'a.s.b.l. <a href="http://www.fobagra.net/" title="FOBAGRA est une a.s.b.l. qui lutte contre la fracture numérique en mettant l'ére numérique à portée de tous" target="_blank">FOBAGRA</a>&nbsp;&copy2025</p>
+        </footer>
+
+    </body>
+</html>

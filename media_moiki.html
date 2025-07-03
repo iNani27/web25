@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8"> 
+        <title>HTML & CSS</title>
+        <meta name="description" content="Description de la page">
+        <meta name="keywords" content="web, html5, css3, media queries">
+        <meta name="author" content="iNani27">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/menu_horizontal.css">
+        <link rel="stylesheet" href="styles/general.css">
+        <link rel="stylesheet" href="styles/galerie_fluide.css">
+        <link rel="stylesheet" href="styles/responsive.css">
+        <script>
+            function includeHTML() {
+                var z, i, elmnt, file, xhttp;
+                /*loop through a collection of all HTML elements:*/
+                z = document.getElementsByTagName("*");
+                for (i = 0; i < z.length; i++) {
+                    elmnt = z[i];
+                    /*search for elements with a certain attribute:*/
+                    file = elmnt.getAttribute("w3-include-html");
+                    if (file) {
+                        /*make an HTTP request using the attribute value as the file name:*/
+                        xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function () {
+                            if (this.readyState == 4) {
+                                if (this.status == 200) {
+                                    elmnt.innerHTML = this.responseText;
+                                }
+                                if (this.status == 404) {
+                                    elmnt.innerHTML = "Page not found.";
+                                }
+                                /*remove the attribute, and call this function once more:*/
+                                elmnt.removeAttribute("w3-include-html");
+                                includeHTML();
+                            }
+                        }
+                        xhttp.open("GET", file, true);
+                        xhttp.send();
+                        /*exit the function:*/
+                        return;
+                    }
+                }
+            }
+            ;
+        </script>
+
+    </head>
+    <body>
+        <header>
+            <h1>Nom du site</h1>
+            <a href="index.html" title="Accueil"><img src="images/logo.png" alt="Logo du site" /></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" title="Accueil">Accueil</a></li>
+                    <li><a href="articles.html" title="Articles">Articles</a></li>
+                    <li><a href="timeline.html" title="Timeline">CV</a></li>
+                    <li><a href="media.html" title="Media">Media</a></li>
+                    <li><a href="contact.html" title="Contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            <h2>Media</h2>
+            <figure>
+                <!-- <img src="https://cdn.pixabay.com/photo/2016/11/13/12/22/woman-1820868_960_720.jpg" alt="image picsum" />
+                
+                #1002/ art emeraude
+                1029/ central park
+                411 / gratte ceiel
+                
+                428/ asie jaune monsieur 
+                397 pittoresque color house
+                           202 voie arbo sol
+                           218 lign eau roch
+                281 skate
+                                536 piscine mer 
+                -->
+
+                <img src="https://picsum.photos/id/281/1500/750" alt="image picsum" />
+
+
+            </figure>
+            <h3>Titre niveau 3</h3>
+
+            <p>
+                Ici intégrez un texte résumé du contenu de la page : le pourquoi de la page ... 
+                Integer commodo porttitor efficitur. Proin fermentum id risus pretium malesuada. Vestibulum et facilisis orci, at feugiat nulla. Proin volutpat convallis dui, vitae elementum justo egestas quis. Donec a tincidunt orci. 
+            </p>
+
+
+            <article>
+                <h4>Moiki</h4>
+                <p>
+                    Moiki est une plateforme française lancée en 2020 par Clément Jacquet. Elle permet de créer des récits interactifs où le lecteur influence le déroulement de l'histoire en fonction de ses choix. L'interface est entièrement en ligne, intuitive et ne nécessite aucune programmation. Les utilisateurs peuvent ajouter du texte, des images, des sons, des objets (comme des clés ou des potions) et des variables (par exemple, une jauge de vie ou un score) pour enrichir l'expérience narrative. 
+                </p>
+                <p>
+                   <a href='moiki/index.html' target="_blank">découvre mon Moiki</a>
+                </p>
+                <script>
+                    includeHTML();
+                </script>  
+            </article>
+
+        </section>
+
+
+        <footer>
+            <p>Créé à l'a.s.b.l. <a href="http://www.fobagra.net/" title="FOBAGRA est une a.s.b.l. qui lutte contre la fracture numérique en mettant l'ére numérique à portée de tous" target="_blank">FOBAGRA</a>&nbsp;&copy2025</p>
+        </footer>
+    </body>
+</html>
