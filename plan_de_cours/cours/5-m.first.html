@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Principes Mobile First et CSS</title>
+        <link id="theme-clair" rel="stylesheet" href="style-clair.css" />
+        <link id="theme-sombre" rel="stylesheet" href="style-sombre.css" disabled />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        <meta name="description" content="Description de la page">
+        <meta name="keywords" content="web, html5, css3, media queries, form">
+        <meta name="author" content="INani 2025">
+        <style>
+            /* CSS mobile-first simple */
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 1rem;
+                background-color: #f9f9f9;
+                color: #222;
+            }
+            h1, h2, h3 {
+                color: #005f73;
+            }
+            ul {
+                padding-left: 1.2rem;
+            }
+            section {
+                margin-bottom: 2rem;
+                background: white;
+                padding: 1rem 1.5rem;
+                border-radius: 5px;
+                box-shadow: 0 0 8px rgba(0,0,0,0.05);
+            }
+            a {
+                color: #0a9396;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            /* Media queries pour tablette */
+            @media (min-width: 768px) {
+                body {
+                    margin: 2rem 4rem;
+                }
+            }
+            /* Media queries pour desktop */
+            @media (min-width: 1024px) {
+                body {
+                    margin: 3rem 8rem;
+                    font-size: 1.1rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+                <button id="switch-theme">Basculer thème</button>
+
+        <script>
+            const btn = document.getElementById('switch-theme');
+            const clair = document.getElementById('theme-clair');
+            const sombre = document.getElementById('theme-sombre');
+
+            // Optionnel : se souvenir du thème choisi
+            const modeEnMemoire = localStorage.getItem('theme') || 'clair';
+            if (modeEnMemoire === 'sombre')
+                toggleTheme();
+
+            btn.addEventListener('click', toggleTheme);
+
+            function toggleTheme() {
+                if (clair.disabled) {
+                    clair.disabled = false;
+                    sombre.disabled = true;
+                    localStorage.setItem('theme', 'clair');
+                } else {
+                    clair.disabled = true;
+                    sombre.disabled = false;
+                    localStorage.setItem('theme', 'sombre');
+                }
+            }
+        </script>
+
+        <header>
+            <h1>Principes de développement Mobile First</h1>
+        </header>
+
+        <section>
+            <h2>1. Objectifs principaux</h2>
+            <ol>
+                <li>Supprimer la programmation superflue.</li>
+                <li>Permettre un accès rapide aux informations.</li>
+                <li>Supprimer les grandes images et les fonctions inutiles des pages.</li>
+                <li>Développer avec un code source le plus léger possible.</li>
+                <li>Abandonner le JavaScript pour développer les pages directement en HTML5.</li>
+                <li>Créer des contenus clairs, faciles et rapides à comprendre.</li>
+                <li>Créer des liens lisibles et faciles à cliquer.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>2. Conception Mobile First</h2>
+            <h3>Défis à relever</h3>
+            <ul>
+                <li>Temps de chargement</li>
+                <li>Poids des éléments</li>
+            </ul>
+            <h3>Solutions</h3>
+            <ul>
+                <li>Amélioration progressive</li>
+                <li>CSS pour version mobile simplifiée, puis media queries pour versions plus grandes (responsive inversé)</li>
+                <li>Contenu média optimisé : images, vidéos (optimisées, taille max, min par défaut)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Rappel CSS2</h2>
+            <ul>
+                <li>La priorité</li>
+                <li>Les pseudo-éléments</li>
+                <li>Les sélecteurs avancés (attribut, adjacence, parenté)</li>
+                <li><code>/**/</code> Commentaire CSS : usage informationnel</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. S'exercer</h2>
+            <p>Exercices CSS sur <a href="https://www.codingame.com/" target="_blank" rel="noopener">CodeInGame</a> :</p>
+            <ul>
+                <li>Les bases CSS</li>
+                <li>Les sélecteurs</li>
+                <li>Les pseudo-classes (Tableau)</li>
+                <li>Le positionnement (Formulaire)</li>
+            </ul>
+            <h3>Résolution d'exercices</h3>
+            <p>Jouez en apprenant les propriétés <strong>FLEX</strong>, leurs valeurs et usages sur <a href="https://mastery.games/" target="_blank" rel="noopener">mastery.games</a> :</p>
+            <ul>
+                <li>flex-box</li>
+            </ul>
+            <h3>S'exercer ensemble</h3>
+            <ol>
+                <li>Sticky navigation</li>
+                <li>Backgrounds change on scroll</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>5. Travaux Pratiques (TP)</h2>
+            <ul>
+                <li>HTML5 semantic structure</li>
+                <li>CSS version mobile</li>
+                <li>CSS Media Queries version Tablet</li>
+                <li>CSS Media Queries version Desktop</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Outils</h2>
+            <ul>
+                <li>Publish : poussez votre site en ligne via GitHub (Settings &gt; GitHub Pages &gt; Source : master branch)</li>
+                <li>Testez le design de votre site sur différents appareils Apple</li>
+                <li><a href="https://mockuphone.com/" target="_blank" rel="noopener">Multi Device Website Mockup Generator</a></li>
+                <li>Testez la vitesse de chargement de votre site : <a href="https://www.dareboost.com" target="_blank" rel="noopener">dareboost</a></li>
+                <li><a href="https://www.freelogodesign.org/" target="_blank" rel="noopener">Create logo for free</a></li>
+                <li>Revoir la construction du code HTML / CSS</li>
+                <li>VIDEO : Pure CSS Sticky Navbar - No Javascript</li>
+                <li>Rappel : <a href="CSS_liens_utiles.html">CSS_liens_utiles.html</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>7. Pour aller plus loin</h2>
+            <ul>
+                <li><a href="https://css-tricks.com/build-flexbox-website-layout/" target="_blank" rel="noopener">Article : build-flexbox-website-layout</a></li>
+                <li><a href="https://css-tricks.com/the-difference-between-width-and-flex-basis/" target="_blank" rel="noopener">Article : the-difference-between-width-and-flex-basis</a></li>
+                <li><a href="https://example.com/css-avance.pdf" target="_blank" rel="noopener">PDF : css avancé</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>© 2025 Mobile First Guide</p>
+        </footer>
+    </body>
+</html>

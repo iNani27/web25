@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <title>Exemple Formulaire & Responsive</title>
+        <link id="theme-clair" rel="stylesheet" href="style-clair.css" />
+        <link id="theme-sombre" rel="stylesheet" href="style-sombre.css" disabled />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        <meta name="description" content="Description de la page">
+        <meta name="keywords" content="web, html5, css3, media queries, form">
+        <meta name="author" content="INani 2025">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 20px auto;
+                padding: 10px;
+                background-color: #f9f9f9;
+            }
+
+            form {
+                background: #fff;
+                padding: 15px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            label {
+                display: block;
+                margin-top: 10px;
+                font-weight: bold;
+            }
+
+            input, textarea, select {
+                width: 100%;
+                padding: 8px;
+                margin-top: 5px;
+                box-sizing: border-box;
+                border: 1px solid #aaa;
+                border-radius: 3px;
+                font-size: 1em;
+            }
+
+            input:focus, textarea:focus, select:focus {
+                border-color: #007BFF;
+                outline: none;
+                background-color: #e6f0ff;
+            }
+
+            input:required {
+                border-left: 4px solid #dc3545; /* rouge bord gauche pour champ obligatoire */
+            }
+
+            input:invalid {
+                background-color: #ffe6e6;
+            }
+
+            /* Responsive : sur petit écran, formulaire en pleine largeur */
+            @media screen and (max-width: 480px) {
+                body {
+                    margin: 10px;
+                    padding: 5px;
+                    background-color: #e0f7fa;
+                }
+                form {
+                    padding: 10px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+                <button id="switch-theme">Basculer thème</button>
+
+        <script>
+            const btn = document.getElementById('switch-theme');
+            const clair = document.getElementById('theme-clair');
+            const sombre = document.getElementById('theme-sombre');
+
+            // Optionnel : se souvenir du thème choisi
+            const modeEnMemoire = localStorage.getItem('theme') || 'clair';
+            if (modeEnMemoire === 'sombre')
+                toggleTheme();
+
+            btn.addEventListener('click', toggleTheme);
+
+            function toggleTheme() {
+                if (clair.disabled) {
+                    clair.disabled = false;
+                    sombre.disabled = true;
+                    localStorage.setItem('theme', 'clair');
+                } else {
+                    clair.disabled = true;
+                    sombre.disabled = false;
+                    localStorage.setItem('theme', 'sombre');
+                }
+            }
+        </script>
+
+
+        <h1>Formulaire de contact</h1>
+        <form action="/submit.php" method="post" novalidate>
+            <label for="date">Date *</label>
+            <input type="date" id="date" name="date" required />
+
+            <label for="prenom">Prénom *</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Entrez votre prénom" required />
+
+            <label for="nom">Nom *</label>
+            <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required />
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="exemple@domaine.com" />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Votre message ici..."></textarea>
+
+            <label for="newsletter">S'abonner à la newsletter</label>
+            <input type="checkbox" id="newsletter" name="newsletter" />
+
+            <button type="submit" style="margin-top: 15px; padding: 10px 15px;">Envoyer</button>
+        </form>
+
+    </body>
+</html>

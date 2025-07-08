@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Inspiration webTeam2025</title>
+        <style>
+            /* Style perso - end */
+            body{
+                background-color: lemonchiffon;
+
+            }
+            img{
+                margin: auto auto;
+                width: 99%;
+                border-radius: 25px;
+                border: 2px solid grey;
+            }
+
+            em{
+                display:inline-block;
+                z-index: +1;
+                font : 12px Georgia, serif;
+            }
+            .container {
+                position: relative;
+            }
+
+            .center {
+                display: block;
+                position: absolute;
+                top: 50%;
+                width: 50%;
+                text-align: center;
+                font-size: 12px;
+                border-radius: 5px;
+                background-color:mediumpurple;
+                color : whitesmoke;
+                text-shadow: 0px 1px black;
+                padding: 10px 0px;
+
+            }
+
+            p#animated_div{
+                font: 15px Arial, sans-serif;
+                z-index: +2;
+            }
+
+            /* Style perso - end */
+
+            /* animate - begin */
+            #animated_div {
+                width:70px;
+                height:47px;
+                background: rosybrown;
+                color: #ffffff;
+                position: relative;
+                font-weight:bold;
+                font-size:20px;
+                padding:10px;
+                animation:animated_div 5s 1;
+                -moz-animation:animated_div 5s 1;
+                -webkit-animation:animated_div 5s 1;
+                -o-animation:animated_div 5s 1;
+                border-radius:5px;
+                -webkit-border-radius:5px;
+            }
+
+            @keyframes animated_div
+            {
+                0% {
+                    transform: rotate(0deg);
+                    left:0px;
+                }
+                25% {
+                    transform: rotate(20deg);
+                    left:0px;
+                }
+                50% {
+                    transform: rotate(0deg);
+                    left:500px;
+                }
+                55% {
+                    transform: rotate(0deg);
+                    left:500px;
+                }
+                70% {
+                    transform: rotate(0deg);
+                    left:500px;
+                    background:#1ec7e6;
+                }
+                100% {
+                    transform: rotate(-360deg);
+                    left:0px;
+                }
+            }
+
+            @-webkit-keyframes animated_div
+            {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    left:0px;
+                }
+                25% {
+                    -webkit-transform: rotate(20deg);
+                    left:0px;
+                }
+                50% {
+                    -webkit-transform: rotate(0deg);
+                    left:500px;
+                }
+                55% {
+                    -webkit-transform: rotate(0deg);
+                    left:500px;
+                }
+                70% {
+                    -webkit-transform: rotate(0deg);
+                    left:500px;
+                    background:#1ec7e6;
+                }
+                100% {
+                    -webkit-transform: rotate(-360deg);
+                    left:0px;
+                }
+            }
+
+            @-moz-keyframes animated_div
+            {
+                0%  {
+                    -moz-transform: rotate(0deg);
+                    left:0px;
+                }
+                25% {
+                    -moz-transform: rotate(20deg);
+                    left:0px;
+                }
+                50%  {
+                    -moz-transform: rotate(0deg);
+                    left:500px;
+                }
+                55%  {
+                    -moz-transform: rotate(0deg);
+                    left:500px;
+                }
+                70%  {
+                    -moz-transform: rotate(0deg);
+                    left:500px;
+                    background:#1ec7e6;
+                }
+                100% {
+                    -moz-transform: rotate(-360deg);
+                    left:0px;
+                }
+            }
+
+            @-o-keyframes animated_div
+            {
+                0% {
+                    transform: rotate(0deg);
+                    left:0px;
+                }
+                25% {
+                    transform: rotate(20deg);
+                    left:0px;
+                }
+                50%  {
+                    transform: rotate(0deg);
+                    left:500px;
+                }
+                55%  {
+                    transform: rotate(0deg);
+                    left:500px;
+                }
+                70%  {
+                    transform: rotate(0deg);
+                    left:500px;
+                    background:#1ec7e6;
+                }
+                100% {
+                    transform: rotate(-360deg);
+                    left:0px;
+                }
+            }
+            /* animate - end */
+
+            /* FLEX - begin */
+            * {
+                box-sizing: border-box;
+
+            }
+
+            .flex-container {
+                display: flex;
+                flex-direction: row;
+                font-size: 30px;
+                text-align: center;
+            }
+
+            .flex-item{
+                padding: 10px;
+                flex: 50%;
+                border-radius: 25px;
+                border: 2px solid white;
+            }
+
+            div.flex-item:hover{
+                margin: 10px;
+                border: 2px solid yellow;
+                box-shadow: 10px 1px 5px 0 rgba(69,69,69,0.5);
+            }
+            div:nth-child(even){
+                /*background-color:  #ccccff;*/
+            }
+
+            div:nth-child(odd) {
+                /*background-color:  #ffccff;*/
+            }
+
+            /* Responsive layout - makes a one column-layout instead of two-column layout */
+            @media (max-width: 800px) {
+                .flex-container {
+                    flex-direction: column;
+                }
+            }
+            /* FLEX - end */
+        </style>
+    </head>
+    <body>
+
+        <h1>Responsive Flexbox</h1>
+        <p id='animated_div'>Web Team 2025</p>
+        <p>The "flex-direction: row;" stacks the flex items horizontally (from left to right).</p>
+        <p>The "flex-direction: column;" stacks the flex items vertically (from top to bottom).</p>
+        <p><b>Resize the browser window to see that the direction changes when the 
+                screen size is 800px wide or smaller.</b></p>
+
+        <div class="flex-container">
+            <div class="flex-item container">
+                <em class="center">CMS</em>
+                <a href="https://ekw-construct.be/" target="_blank" title="Site web 'EKW' - pour un extérieur qui tient la route">
+                    <img src="images/ekw.png" alt="Site web de l'entreprise de terrassement bruxelloise 'EKW' - CMS WordPress - Theme DIVI"/>
+                </a>
+            </div>           
+            <div class="flex-item container">
+                <em class="center">animate</em>
+                <a href="https://etterbeek.brussels/fr" target="_blank" title="">
+                    <img src="images/etterbeek.png" alt="Site web de la commune d'Etterbeek"/>
+                </a>
+            </div>            
+
+
+            <div class="flex-item container">
+                <em class="center">€uro</em>
+                <a href="https://www.stonex.com/" target="_blank" title="">
+                    <img src="images/stone_x.png" alt="Site web StoneX, plateforme américaine de services financiers"/>
+                </a>
+            </div>            
+            <div class="flex-item container">
+                <em class="center">Bruxelles</em>
+                <a href="https://www.visit.brussels/fr/" target="_blank" title="Laissez Bruxelles vous inspirer">
+                    <img src="images/visit.brussels.png" alt="Site web 'Visit.brussels'"/>
+                </a>
+            </div>            
+            <div class="flex-item container">
+                <em class="center">Paris</em>
+                <a href="https://immersive-g.com/" target="_blank" title="Site web 'Immersive Garden - digital production studio - Paris - design, animation & development.'">
+                    <img src="images/immersive_garden.png" alt="Immersive Garden is a digital production studio based in Paris specialized in design, animation & development."/>
+                </a>
+            </div>
+            <div class="flex-item container">
+                <em class="center">RAP</em>
+                <a href="https://mofokerecords.be/" target="_blank" title="'MoFoke Records' - Label musical belge - HipHop Underground">
+                    <img src="images/mofoke_records_label.png" alt="Site web de 'MoFoke Records', label musical belge bruxellois"/>
+                </a>
+            </div>
+            <div class="flex-item container">
+                <em class="center">Pastel</em>
+                <a href="https://rose-lesite.fr/" target="_blank" title="Site web de l'artiste 'Rose'">
+                    <img src="images/rose.png" alt="Site web de l'artiste 'Rose', style doux et pastel"/>
+                </a>
+            </div>
+            <div class="flex-item container">
+                <em class="center">Épuré</em>
+                <a href="https://le-sabot.fr/" target="_blank" title="Site web litteraire 'Le Sabot'">
+                    <img src="images/le_sabot.png" alt="Site web 'Le Sabot', simple et épuré"/>
+                </a>
+            </div>
+            <div class="flex-item container">
+                <em class="center"> ©couleur</em>
+                <a href="https://www.nintendo.com/fr-be/" target="_blank" title="Site web ©Nintendo">
+                    <img src="images/nintendo.png" alt="Site web ©Nintendo, code couleur de la marque"/>
+                </a>
+            </div>
+
+        </div>
+
+    </body>
+</html>
+
+

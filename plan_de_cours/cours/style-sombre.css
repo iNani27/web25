@@ -1,0 +1,105 @@
+/* 
+    Created on : 17-juin-2025, 22:36:56
+    Author     : Isabelle
+*/
+/* style.css - Thème Néon Pop adapté aux pages html cours */
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #0f0f1a;
+    color: #ffffff;
+    line-height: 1.6;
+    padding: 2rem; /* Pour un peu d’espace autour */
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ff00cc;
+    margin-bottom: 0.2rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #ff00cc;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 8px #ff00cc;
+}
+
+h3 {
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+ul li {
+    position: relative;
+    padding-left: 1.5em;
+    margin-bottom: 0.6rem;
+}
+
+/* Ajouter l’étoile ✨ avant chaque <li> */
+ul li::before {
+    content: '✨';
+    position: absolute;
+    left: 0;
+    color: #ff00cc;
+    text-shadow: 0 0 6px #ff00cc;
+}
+
+/* Style des balises <strong> */
+strong {
+    color: #ff00cc;
+    text-shadow: 0 0 6px #ff00cc;
+}
+
+/* Style du <code> */
+code {
+    background-color: #333366;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+/* Style du <kbd> */
+kbd {
+    background-color: #222244;
+    border: 1px solid #00ffff;
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: #00ffff;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 0 0 8px #00ffff;
+}
+
+/* Style pour le footer */
+footer {
+    background: #1a1a2e;
+    color: #ff00cc;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    border-top: 2px solid #ff00cc;
+    box-shadow: 0 -4px 20px rgba(255, 0, 204, 0.2);
+    margin-top: 3rem;
+}
+
+

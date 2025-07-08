@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Cours 2 - CSS</title>
+        <link id="theme-clair" rel="stylesheet" href="style-clair.css" />
+        <link id="theme-sombre" rel="stylesheet" href="style-sombre.css" disabled />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        <meta name="description" content="Description de la page">
+        <meta name="keywords" content="web, html5, css3, media queries, form">
+        <meta name="author" content="INani 2025">
+    </head>
+    <body>
+        <button id="switch-theme">Basculer thème</button>
+
+        <script>
+            const btn = document.getElementById('switch-theme');
+            const clair = document.getElementById('theme-clair');
+            const sombre = document.getElementById('theme-sombre');
+
+            // Optionnel : se souvenir du thème choisi
+            const modeEnMemoire = localStorage.getItem('theme') || 'clair';
+            if (modeEnMemoire === 'sombre')
+                toggleTheme();
+
+            btn.addEventListener('click', toggleTheme);
+
+            function toggleTheme() {
+                if (clair.disabled) {
+                    clair.disabled = false;
+                    sombre.disabled = true;
+                    localStorage.setItem('theme', 'clair');
+                } else {
+                    clair.disabled = true;
+                    sombre.disabled = false;
+                    localStorage.setItem('theme', 'sombre');
+                }
+            }
+        </script>
+
+        <h1>Cours_2</h1>
+        <h2>CSS - une révolution visuelle</h2>
+        <h3>Plan du cours: HTML-CSS - partie 2</h3>
+        <p>HTML pour le fond (robots de moteurs de recherche), CSS pour la forme (humain)</p>
+        <ul>
+            <li>le HTML définit le fond (contenu, logique des éléments) ;</li>
+            <li>le CSS définit la forme (apparence).</li>
+        </ul>
+
+        <h3>Mettre en forme avec style !</h3>
+        <ul>
+            <li>couleur</li>
+            <li>police</li>
+            <li>taille du texte</li>
+            <li>bordure</li>
+            <li>fond (aplat ou dégradé de couleur; image)</li>
+            <li>...</li>
+            <li>position et largeur des blocs de contenu</li>
+        </ul>
+
+        <h3>Historiquement</h3>
+        <ol>
+            <li>Balises pour quelques styles : <code>&lt;font color="#aab1c3"&gt;</code> - 1991- - - -&gt;</li>
+            <li>1996 : baliser chaque élément sur lesquels une mise en forme devait être appliquée => mise à jour, modification !!!</li>
+            <li>Attribut style dans les balises (inline) : <code>&lt;p style="color:#aab1c3"&gt;&lt;/p&gt;</code></li>
+            <li>Déclaration des styles dans l'entête de chaque page (internal)
+                <pre>
+&lt;head&gt;
+    ...
+    &lt;style&gt;
+        p {color: #aab1c3;}
+    &lt;/style&gt;
+&lt;/head&gt;
+                </pre>
+            </li>
+            <li>Lien vers une/des feuilles de styles communes (external)<br/>
+                ... Les feuilles de style (en cascade) étaient nées ...
+                <pre>
+&lt;head&gt;
+    &lt;link rel="stylesheet" href="mes_styles.css"&gt;
+&lt;/head&gt;
+                </pre>
+            </li>
+        </ol>
+
+        <p>Les navigateurs web interprètent non seulement l'HTML mais aussi la CSS ! Sont-ils tous égaux dans cette entreprise? NON (cf.IE6).<br/>
+            Comme les langages WEB, les navigateurs ont eux-aussi leurs versions nées au fil du temps et plus la version du navigateur est ancienne, moins elle connait les fonctionnalités CSS.<br/>
+            OK pour le contenu - la page s'affichera toujours! Mais soyez structuré, si les styles ne sont pas interprétés, l'enchaînement des informations contenues doit rester cohérent.</p>
+
+        <h3>Synthèse css</h3>
+        <ul>
+            <li>Où placer les styles? (external, internal, inline)</li>
+        </ul>
+
+        <h3>Mes premiers styles en CSS</h3>
+        <pre>&lt;link rel="stylesheet" href="mes_styles.css" /&gt;</pre>
+
+        <h4>Démo</h4>
+        <ol>
+            <li>créez un fichier nommé "mes_styles.css"</li>
+            <li>dans le fichier cv.html, ajoutez la ligne de code le reliant à sa CSS</li>
+            <li>dans le fichier mes_styles.css, ajoutez des styles:</li>
+        </ol>
+        <ul>
+            <li>Couleur des paragraphes : bleu</li>
+            <li>Couleur de fond des titres : bleu et titres en blanc</li>
+            <li>Pour l'image : des bordures de style : solide; de couleur: orange et de 15px d'épaisseur.</li>
+        </ul>
+        <p><strong>CTRL + F5</strong><br/>=> Rafraîchissez votre page HTML, après chaque modification CSS ...<br/>et admirez la mise en forme.</p>
+
+        <h3>Un ensemble de règles de styles se compose de:</h3>
+        <ul>
+            <li>un sélecteur (nom de la balise à laquelle je veux ajouter un style)</li>
+            <li>un bloc de déclaration de styles = une propriété : une valeur ;</li>
+        </ul>
+
+        <h3>Syntaxe CSS</h3>
+        <h4>Sélecteurs CSS</h4>
+        <p>Types de sélecteurs :</p>
+        <ul>
+            <li>l'élément (p, h1, ul, ...)</li>
+            <li>class (tous les élément qui ont la même class en attribut)</li>
+            <li>id (l'élément qui a un identifiant unique en attribut)</li>
+        </ul>
+
+        <h4>Démo</h4>
+        <p>Les sélecteurs</p>
+        <ol>
+            <li>dans le fichier mes_liens.html, ajoutez la ligne de code le reliant à sa CSS</li>
+            <li>Ajouter l'attribut class = "droite" sur 3 sélecteurs :
+                <ul>
+                    <li>le premier H2</li>
+                    <li>l'avant dernier paragraphe</li>
+                    <li>le paragraphe contenant le lien haut de page</li>
+                </ul>
+            </li>
+            <li>créez un fichier nommé "styles_des_selecteurs.css"</li>
+            <li>dans le fichier styles_des_selecteurs.css, ajoutez des styles:</li>
+        </ol>
+        <ul>
+            <li>Donnez des tailles différentes aux éléments de titres et paragraphes</li>
+            <li>Alignez à droite les éléments de class="droite"</li>
+            <li>Alignez au centre l'élément qui a l'ID top</li>
+        </ul>
+
+        <h3>Des propriétés CSS et leurs valeurs</h3>
+        <h4>Famille : Les couleurs</h4>
+        <p>Propriété : Color (background-color, border-color, ...)</p>
+        <p>Valeur :</p>
+        <ul>
+            <li>soit le nom de la couleur (en anglais) ;</li>
+            <li>soit le code hexadécimal de la couleur (ex: noir : #000000; blanc : #FFFFFF); ou encore</li>
+            <li>soit le code RGB (% de Red - de Green - de Blue) (ex: rouge :255,0,0 )</li>
+            <li>(CSS3 RGBa opacity)</li>
+        </ul>
+        <p>Références en français ou en anglais</p>
+        <ul>
+            <li>couleur => color</li>
+            <li>couleur de fond => background-color</li>
+            <li>background -image : <a href="https://www.w3schools.com/howto/howto_css_bg_change_scroll.asp" target="_blank" rel="noopener noreferrer">https://www.w3schools.com/howto/howto_css_bg_change_scroll.asp</a></li>
+            <li>Liens effets : <a href="https://codepen.io/brenden/pen/RNZXqx" target="_blank" rel="noopener noreferrer">https://codepen.io/brenden/pen/RNZXqx</a> et <a href="https://www.w3schools.com/css/css_link.asp" target="_blank" rel="noopener noreferrer">https://www.w3schools.com/css/css_link.asp</a></li>
+        </ul>
+
+        <h3>Exercices 1 :</h3>
+        <p>Modifiez la couleur</p>
+        <ol>
+            <li>du paragraphe,</li>
+            <li>des titres,</li>
+            <li>des bordures de l'images (arrondi, ombre ...) ,</li>
+            <li>de la page (dégradé ...)</li>
+        </ol>
+        <p>colors gradient - border-radius - shadow</p>
+        <p>dégradé de couleur...des bords arrondis ... des ombres portées<br/>
+            Générateur via CSSmatic et exemple sur CodePEN</p>
+
+        <h3>Famille : les polices d'écritures</h3>
+        <p>Propriété : Font</p>
+        <p>Valeur :</p>
+        <ul>
+            <li>police => font</li>
+        </ul>
+        <p>Références en français ou en anglais</p>
+        <ul>
+            <li>font-family et Google Fonts : Quelle police de caractère, quelle écriture.</li>
+            <li>(CSS3 Police de navigateur)</li>
+            <li>font-size : Quelles tailles pour les titres (hiérarchisés), pour les paragraphes, pour les élément de listes, ...)</li>
+            <li>font-weight : Quelle graisse pour vos caractère (Cf. imprimerie)</li>
+            <li>direction : de droite à gauche</li>
+        </ul>
+
+        <h3>Exercice 2</h3>
+        <ol>
+            <li>Modifiez l'apparence du texte (des caractères):</li>
+            <li>Choisissez une famille de police de caractère que vous donnerez à tout le texte</li>
+            <li>Donnez des tailles en pixel à vos éléments</li>
+        </ol>
+        <p>Bonus : Votre nom et le 1ier paragraphe peuvent avoir une police stylisée (Google)</p>
+
+        <h3>Propriété : list-style</h3>
+        <p>Références en français ou en anglais</p>
+
+        <h3>Unité, dimension, position</h3>
+        <h4>Unité</h4>
+        <p>Valeur absolue : px</p>
+        <p>Valeur relative :</p>
+        <ul>
+            <li>xx-small: minuscule ;</li>
+            <li>x-small: très petit ;</li>
+            <li>small: petit ;</li>
+            <li>medium: moyen ;</li>
+            <li>large: grand ;</li>
+            <li>x-large: très grand ;</li>
+            <li>xx-large: euh… gigantesque.</li>
+            <li>em (1.3em)</li>
+            <li>%</li>
+        </ul>
+
+        <h3>Responsive text</h3>
+        <ul>
+            <li>1vw = 1% de la largeur de la fenêtre</li>
+            <li>1VH = 1% de la hauteur de la fenêtre</li>
+            <li>1vmin = 1vw ou 1VH, soit la valeur la plus petite</li>
+            <li>1vmax = 1vw ou 1VH, soit la valeur la plus grande</li>
+        </ul>
+
+        <h3>Exercice 3</h3>
+        <p>Ajustez la taille des textes en em</p>
+
+        <h3>Dimension (Block &lt;&gt; inline)</h3>
+        <p>Références en français ou en anglais</p>
+        <p>les éléments inline (flux du contenu) : strong, em, a, img, ...span</p>
+        <p>les éléments block (démarre toujours sur une nouvelle ligne et prend toute la place possible): p, h1 -&gt; h6, ul/ol, figure, ...div</p>
+        <p>largeur => width</p>
+        <p>hauteur => height</p>
+
+        <h3>Exercice 4</h3>
+        <p>Donnez des dimensions à vos éléments block (largeur en %)</p>
+        <p>Modifiez le rendu à l'écran de ces éléments grâce à la propriété display de valeur inline-block (l'élément est interprété comme à un élément inline avec un comportement block) cf menu ...</p>
+
+        <h3>&gt;&gt; Liste de liens utiles</h3>
+        <p>QCM - Compétence CSS - bases</p>
+        <p><a href="https://forms.office.com" target="_blank" rel="noopener noreferrer">Cliquez sur le bouton Afficher pour charger le contenu incorporé</a></p>
+
+        <h3>Objectif : CV avec CSS</h3>
+        <ol>
+            <li>Ajoutez la balise pour lier le/s fichier/s CSS au fichier html</li>
+            <li>Diviser votre contenu en deux &lt;div&gt;:
+                <ul>
+                    <li>à gauche une vignette contenant
+                        <ul>
+                            <li>votre photo</li>
+                            <li>votre nom</li>
+                            <li>une phrase vous décrivant</li>
+                        </ul>
+                    </li>
+                    <li>Cette partie ne devra prendre plus de 25% de la largeur de la page</li>
+                    <li>Ajoutez un padding de 3 em</li>
+                    <li>Ajoutez à votre photo une bordure arrondie, solide de la couleur de votre choix et une ombre portée</li>
+                    <li>Alignez à droite votre nom et votre description</li>
+                    <li>à droite le contenu restant</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>Compétence CSS</h2>
+        <h3>QCM</h3>
+        <p>Lorsque vous soumettez ce formulaire, il ne collecte pas automatiquement vos détails, tels que le nom et l’adresse e-mail, sauf si vous le fournissez vous-même.</p>
+
+        <form>
+            <fieldset>
+                <legend>Obligatoire</legend>
+                <label for="date">1. Date</label><br/>
+                <input type="date" id="date" name="date" required /><br/><br/>
+
+                <label for="nom">2. NOM</label><br/>
+                <input type="text" id="nom" name="nom" required /><br/><br/>
+
+                <label for="prenom">3. Prénom</label><br/>
+                <input type="text" id="prenom" name="prenom" required /><br/><br/>
+
+                <p>4. Vrai ou faux ? On peut donner une image de fond à un paragraphe de texte.</p>
+                <input type="radio" id="vrai" name="q4" value="vrai" required />
+                <label for="vrai">vrai</label><br/>
+                <input type="radio" id="faux" name="q4" value="faux" />
+                <label for="faux">faux</label><br/><br/>
+
+                <p>5. Laquelle de ces couleurs correspond à du blanc ?</p>
+                <input type="radio" id="c1" name="q5" value="#000" required />
+                <label for="c1">#000</label><br/>
+                <input type="radio" id="c2" name="q5" value="rgb(100, 100, 100)" />
+                <label for="c2">rgb(100, 100, 100)</label><br/>
+                <input type="radio" id="c3" name="q5" value="#FFFFFF" />
+                <label for="c3">#FFFFFF</label><br/>
+                <input type="radio" id="c4" name="q5" value="purple" />
+                <label for="c4">purple</label><br/><br/>
+
+                <p>6. Que doit-on écrire en CSS pour appliquer un style aux balises de titre de niveau 2 et 3 ?</p>
+                <input type="radio" id="r1" name="q6" value="h2 + h3" required />
+                <label for="r1">h2 + h3</label><br/>
+                <input type="radio" id="r2" name="q6" value="h2 h3" />
+                <label for="r2">h2 h3</label><br/>
+                <input type="radio" id="r3" name="q6" value=".h2 .h3" />
+                <label for="r3">.h2 .h3</label><br/>
+                <input type="radio" id="r4" name="q6" value="h2, h3" />
+                <label for="r4">h2, h3</label><br/><br/>
+
+                <p>7. Si je donne la valeur 1 à la propriété opacity sur un élément, que se passera-t-il ?</p>
+                <input type="radio" id="o1" name="q7" value="disparition" required />
+                <label for="o1">L'élément disparaîtra complètement</label><br/>
+                <input type="radio" id="o2" name="q7" value="moitie" />
+                <label for="o2">L'élément sera à moitié transparent</label><br/>
+                <input type="radio" id="o3" name="q7" value="leger" />
+                <label for="o3">L'élément sera très très légèrement transparent</label><br/>
+                <input type="radio" id="o4" name="q7" value="opaque" />
+                <label for="o4">L'élément sera opaque</label><br/><br/>
+
+                <p>8. Que se passe-t-il quand un élément est rendu flottant ?</p>
+                <input type="radio" id="f1" name="q8" value="bouge" required />
+                <label for="f1">Il bouge sur la page</label><br/>
+                <input type="radio" id="f2" name="q8" value="haut-gauche" />
+                <label for="f2">Il est positionné en haut à gauche de l'écran</label><br/>
+                <input type="radio" id="f3" name="q8" value="texte-entoure" />
+                <label for="f3">Le texte entoure l'élément flottant</label><br/>
+                <input type="radio" id="f4" name="q8" value="cache" />
+                <label for="f4">Il est caché</label><br/><br/>
+
+                <p>9. Quelle unité représente 1% de la largeur de la fenêtre ?</p>
+                <input type="radio" id="u1" name="q9" value="1em" required />
+                <label for="u1">1em</label><br/>
+                <input type="radio" id="u2" name="q9" value="1vw" />
+                <label for="u2">1vw</label><br/>
+                <input type="radio" id="u3" name="q9" value="1vh" />
+                <label for="u3">1vh</label><br/>
+                <input type="radio" id="u4" name="q9" value="1px" />
+                <label for="u4">1px</label><br/><br/>
+
+                <p>10. Quelle propriété CSS permet de positionner un élément à droite ?</p>
+                <input type="radio" id="p1" name="q10" value="float:right" required />
+                <label for="p1">float:right</label><br/>
+                <input type="radio" id="p2" name="q10" value="align:right" />
+                <label for="p2">align:right</label><br/>
+                <input type="radio" id="p3" name="q10" value="position:right" />
+                <label for="p3">position:right</label><br/>
+                <input type="radio" id="p4" name="q10" value="right:1em" />
+                <label for="p4">right:1em</label><br/><br/>
+
+                <button type="submit">Soumettre</button>
+            </fieldset>
+        </form>
+
+    </body>
+</html>

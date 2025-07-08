@@ -1,0 +1,5 @@
+🖼️ Remarque pour les images :
+
+Crée un dossier nommé images.
+
+Ajoute les paires d’images chat.jpg + chat_mini.jpg, dauphin.jpg + dauphin_mini.jpg, etc.

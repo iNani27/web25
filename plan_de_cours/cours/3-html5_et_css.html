@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Cours 3 - HTML5 et CSS3</title>
+        <link id="theme-clair" rel="stylesheet" href="style-clair.css" />
+        <link id="theme-sombre" rel="stylesheet" href="style-sombre.css" disabled />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        <meta name="description" content="Description de la page">
+        <meta name="keywords" content="web, html5, css3, media queries, form">
+        <meta name="author" content="INani 2025">
+        <style>
+            /* Style basique pour retirer puces et mettre menu horizontal */
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                display: flex; /* menu horizontal */
+            }
+            nav li {
+                margin-right: 15px;
+            }
+            p {
+                text-align: justify;
+                width: 80%;
+                margin: 0 auto;
+            }
+            header, nav {
+                display: inline-block;
+                vertical-align: top;
+            }
+        </style>
+    </head>
+    <body>
+                <button id="switch-theme">Basculer thème</button>
+
+        <script>
+            const btn = document.getElementById('switch-theme');
+            const clair = document.getElementById('theme-clair');
+            const sombre = document.getElementById('theme-sombre');
+
+            // Optionnel : se souvenir du thème choisi
+            const modeEnMemoire = localStorage.getItem('theme') || 'clair';
+            if (modeEnMemoire === 'sombre')
+                toggleTheme();
+
+            btn.addEventListener('click', toggleTheme);
+
+            function toggleTheme() {
+                if (clair.disabled) {
+                    clair.disabled = false;
+                    sombre.disabled = true;
+                    localStorage.setItem('theme', 'clair');
+                } else {
+                    clair.disabled = true;
+                    sombre.disabled = false;
+                    localStorage.setItem('theme', 'sombre');
+                }
+            }
+        </script>
+
+
+        <!-- En-tête du site -->
+        <header>
+            <h1>Mon site web</h1>
+            <p>Logo et bannière ici</p>
+        </header>
+
+        <!-- Menu de navigation -->
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">À propos de moi (CV)</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contenu principal divisé en sections -->
+        <section>
+            <article>
+                <header>
+                    <h2>Introduction aux nouveaux éléments HTML5</h2>
+                </header>
+                <p>Les nouveaux éléments HTML5 les plus intéressants sont : &lt;header&gt;, &lt;footer&gt;, &lt;nav&gt;, &lt;article&gt;, &lt;section&gt;.</p>
+            </article>
+
+            <article>
+                <header>
+                    <h2>Éléments multimédias et graphiques</h2>
+                </header>
+                <p>Les nouveaux éléments graphiques : &lt;svg&gt; et &lt;canvas&gt;. Les nouveaux éléments multimédias : &lt;audio&gt; et &lt;video&gt;.</p>
+            </article>
+
+            <aside>
+                <h3>Informations complémentaires</h3>
+                <p>Les balises sémantiques permettent d’organiser la page sans s’occuper de la mise en page.</p>
+            </aside>
+        </section>
+
+        <!-- Pied de page -->
+        <footer>
+            <p>© 2025 Mon site - Mentions légales</p>
+        </footer>
+
+    </body>
+</html>

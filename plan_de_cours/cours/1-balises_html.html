@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cours 1 - HTML - Les bases</title>
+        <link id="theme-clair" rel="stylesheet" href="style-clair.css" />
+        <link id="theme-sombre" rel="stylesheet" href="style-sombre.css" disabled />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        <meta name="description" content="Description de la page">
+        <meta name="keywords" content="web, html5, css3, media queries, form">
+        <meta name="author" content="INani 2025">
+    </head>
+    <body>
+        <button id="switch-theme">Basculer thème</button>
+
+        <script>
+            const btn = document.getElementById('switch-theme');
+            const clair = document.getElementById('theme-clair');
+            const sombre = document.getElementById('theme-sombre');
+
+            // Optionnel : se souvenir du thème choisi
+            const modeEnMemoire = localStorage.getItem('theme') || 'clair';
+            if (modeEnMemoire === 'sombre')
+                toggleTheme();
+
+            btn.addEventListener('click', toggleTheme);
+
+            function toggleTheme() {
+                if (clair.disabled) {
+                    clair.disabled = false;
+                    sombre.disabled = true;
+                    localStorage.setItem('theme', 'clair');
+                } else {
+                    clair.disabled = true;
+                    sombre.disabled = false;
+                    localStorage.setItem('theme', 'sombre');
+                }
+            }
+        </script>
+
+        <h1>HTML - Les bases</h1>
+        <h2>Plan du cours : HTML-CSS - Partie 1</h2>
+
+        <h3>Introduction</h3>
+        <p>Un site web, comment cela fonctionne ?</p>
+        <ul>
+            <li><strong>Browser :</strong> interprétation du HTML (1991) et CSS (1996)</li>
+            <li><strong>Code source :</strong> accessible avec CTRL + U</li>
+            <li><strong>Tim Berners-Lee :</strong> inventeur du HTML (<a href="../../site_Isa/introWEB_Tim_w3C.html">Hyper Text Markup Language</a>)</li>
+            <li><strong>W3C :</strong> World Wide Web Consortium</li>
+            <li><strong>Éditeurs de texte :</strong> Bloc-notes, Notepad++, Netbeans, etc.</li>
+            <li><strong>WYSIWYG :</strong> sans apprendre le code</li>
+        </ul>
+
+        <p>Vous utilisez souvent un navigateur pour visiter des sites comme YouTube ou Cazou. Mais quelle langue parlent-ils ? Avec un simple <kbd>CTRL + U</kbd>, vous pouvez voir le code source d'une page web.</p>
+
+        <h3>Synthèse Web</h3>
+        <ul>
+            <li>Qui a inventé le WEB, et quand ?</li>
+            <li>Quels langages sont utilisés pour créer un site web ?</li>
+            <li>Quelles versions sont utilisées aujourd'hui ?</li>
+            <li>Le navigateur est-il un programme ? Qui fait quoi ?</li>
+            <li>Tous les navigateurs affichent-ils le même rendu ? Citez-en.</li>
+            <li>Quel programme utiliser pour coder un site web ?</li>
+        </ul>
+
+        <h2>Ma première page en HTML</h2>
+        <p>Écrivez deux lignes :<br>
+            Bonjour<br>
+            Comment va ?</p>
+        <p>Enregistrez le fichier avec l'extension <code>.html</code> et ouvrez-le avec un navigateur.</p>
+        <p>Résultat attendu : une seule ligne affichée si vous ne faites pas de retour à la ligne explicite.</p>
+
+        <h3>Balises et attributs : introduction</h3>
+        <ul>
+            <li><strong>Balises (tags) HTML :</strong> instructions encadrées par des chevrons</li>
+            <li>Types de balises : ouvrante, fermante, orpheline (auto-fermante)</li>
+            <li>Contenu : titre, image, paragraphe, lien</li>
+            <li><strong>Attributs :</strong> placés dans la balise ouvrante (ex : <code>title</code>, <code>alt</code>, <code>src</code>, <code>href</code>, <code>class</code>, <code>id</code>, etc.)</li>
+        </ul>
+
+        <h3>Balises de base d'une page HTML</h3>
+        <p>Une page web peut être nommée <code>index.php</code>, <code>index.htm</code>, etc. Elle doit indiquer au navigateur qu’il s’agit d’un document HTML5 via <code>&lt;!DOCTYPE html&gt;</code>.</p>
+        <ul>
+            <li><strong>Métadonnées :</strong> pour le navigateur, non visibles par l'utilisateur</li>
+            <li><strong>Contenu :</strong> visible</li>
+            <li><strong>Indentation :</strong> améliore la lisibilité du code</li>
+        </ul>
+
+        <h3>Exercice 1</h3>
+        <ul>
+            <li><strong>Nom du fichier :</strong> 01-ma_page</li>
+            <li><strong>Onglet du navigateur :</strong> Ma page</li>
+            <li><strong>Titre (H1) :</strong> Le secret d’un — couronné de succès</li>
+            <li><strong>Paragraphe :</strong> Un conseil, ne le lis pas au boulot, ... il devait être 8h20 ce matin, la rue était calme, ... quand tout à coup, surgit de la rue qui mène à Sapiens, un ...</li>
+        </ul>
+    </body>
+</html>
