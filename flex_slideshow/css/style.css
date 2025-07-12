@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Segoe UI, sans-serif;
+}
+
+header {
+  background-color: #222;
+  color: #fff;
+}
+
+.slideshow-container {
+  position: relative;
+  max-width: 1000px; 
+  margin: auto;
+  overflow: hidden;
+}
+
+.mySlides {
+  display: none;
+  width: 100%;
+}
+
+.mySlides img {
+  width: 100%;
+  height: auto;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #333;
+}
+
+nav a {
+  padding: 14px 20px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
+
+nav a:hover {
+  background-color: #575757;
+}
+
+section {
+  padding: 2rem;
+}
+
+p{
+    margin: 1rem;
+}
+
+.centrer {
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+audio {
+    width: 100%;
+    border-radius: 15px;
+    margin: 20px 0px;
+}
+ul {
+    list-style-type: cjk-ideographic; /*https://www.w3schools.com/cssref/playdemo.php?filename=playcss_list-style-type&preval=square*/
+    margin-left: 50px;
+}
+
+.articles {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.article {
+  background-color: #eee;
+  padding: 1rem;
+  border-radius: 25px;
+}
+
+@media (min-width: 768px) {
+  .articles {
+    flex-direction: row;
+  }
+
+  .article {
+    flex: 1 1 45%;
+  }
+}
+
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}

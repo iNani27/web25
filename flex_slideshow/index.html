@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page Flexbox + Slideshow</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <img src="images/slide1_600-200.jpg" alt="Slide 1">
+                </div>
+                <div class="mySlides">
+                    <img src="images/slide2_600-200.jpg" alt="Slide 2">
+                </div>
+                <div class="mySlides">
+                    <img src="images/slide3_600-200.jpg" alt="Slide 3">
+                </div>
+            </div>
+
+            <nav>
+                <a href="index.html">Accueil</a>
+                <a href="exercices_html.html">HTML</a>
+                <a href="exercices_css.html">CSS</a>
+            </nav>
+        </header>
+
+        <section class="centrer">
+            <h2>Présentation audio</h2>
+            <p>Bienvenue :- ) Voici un extrait audio à découvrir : </p>
+
+            <audio controls>
+                <source src="audio/extrait.mp3" type="audio/mpeg" title="the-best-jazz-club-in-new-orleans-164472.mp3">
+                Votre navigateur ne prend pas en charge l’audio.
+            </audio>
+            <p><i>Music by <a href="https://pixabay.com/fr/users/paoloargento-38603296/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=164472">Paolo Argento</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=164472">Pixabay</a></i></p>
+        </section>
+        <section>
+            <p>
+                Vous êtes sur le page <code>index.html</code>, ce fichier est la racine de votre site web. Le dossier nommé <code>flex_slideshow</code> contient une structure complète du projet avec : </p>
+            <ul>
+                <li>
+                    Fichier <code>index.html</code>
+                </li>
+                <li>
+                    Dossiers <code>css</code>, <code>js</code>, <code>images</code>, <code>audio</code>
+                </li>
+                <li>
+                    Slideshow fonctionnel (JS), inspiré de la section "How To" du site de réference en matière de standard du Web W3schools - <a href="https://www.w3schools.com/howto/howto_js_slideshow.asp" target="_blank">How To SlideShow</a>
+                </li>
+                <li>
+                    Mise en page 100% Flexbox, inspiré de la section "CSS" du site de réference en matière de standard du Web W3schools - <a href="https://www.w3schools.com/css/css3_flexbox.asp" target="_blank">CSS FlexBox</a>
+                </li>
+            </ul>
+            <p>
+                <i>
+                    Enivie de modifier les puces de cette liste <code>ul</code>? RDV dans le fichier <code>style.css</code> qui utilise la propriété et valeur <code>list-style-type: cjk-ideographic;</code>. Plus de style de liste sur <a href="https://www.w3schools.com/cssref/playdemo.php?filename=playcss_list-style-type&preval=square" target="_blank">W3schools : CSS list-style-type</a>
+                </i>
+            </p>
+        </section>
+        <section class="articles">
+            <article class="article">
+                <h3>Exercices HTML</h3>
+                <p>Résumé de l'article numéro 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>
+                    <a style="text-align:right;" href="exercices_html.html"><em>lire plus..</em></a>
+                </p>
+            </article>
+            <article class="article">
+                <h3>Exercices CSS</h3>
+                <p>Résumé de l'article numéro 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                 <p>
+                    <a style="text-align:right;" href="exercices_css.html"><em>lire plus..</em></a>
+                </p>
+            </article>
+        </section>
+
+        <footer>
+            <p>Made @<a href="https://fobagra.net" target="_blank">fobagra.net</a> ©2025</p>
+        </footer>
+
+        <script src="js/script.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Flexbox + Slideshow</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #222;
+      color: #fff;
+    }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .mySlides {
+      display: none;
+      width: 100%;
+    }
+
+    .mySlides img {
+      width: 100%;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: #333;
+    }
+
+    nav a {
+      padding: 14px 20px;
+      text-decoration: none;
+      color: white;
+      text-align: center;
+    }
+
+    nav a:hover {
+      background-color: #575757;
+    }
+
+    section {
+      padding: 1rem;
+    }
+
+    .audio-section {
+      background-color: #f9f9f9;
+    }
+
+    .articles {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article {
+      background-color: #eee;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    @media (min-width: 768px) {
+      .articles {
+        flex-direction: row;
+      }
+
+      .article {
+        flex: 1 1 45%;
+      }
+    }
+
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="slideshow-container">
+      <div class="mySlides">
+        <img src="https://via.placeholder.com/1200x300?text=Slide+1" alt="Slide 1">
+      </div>
+      <div class="mySlides">
+        <img src="https://via.placeholder.com/1200x300?text=Slide+2" alt="Slide 2">
+      </div>
+      <div class="mySlides">
+        <img src="https://via.placeholder.com/1200x300?text=Slide+3" alt="Slide 3">
+      </div>
+    </div>
+
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#">À propos</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="audio-section">
+    <h2>Présentation audio</h2>
+    <p>Bienvenue sur notre page ! Voici un extrait audio à découvrir :</p>
+    <audio controls>
+      <source src="extrait.mp3" type="audio/mpeg">
+      Votre navigateur ne prend pas en charge l’audio.
+    </audio>
+  </section>
+
+  <section class="articles">
+    <div class="article">
+      <h3>Article 1</h3>
+      <p>Résumé de l'article numéro 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="article">
+      <h3>Article 2</h3>
+      <p>Résumé de l'article numéro 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Visitez <a href="https://fobagra.net" target="_blank">fobagra.net</a></p>
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+  </script>
+
+</body>
+</html>
