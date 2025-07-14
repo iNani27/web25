@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>ALT</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+        <style>
+            body{
+                background-color: black;
+                color: lightsteelblue;
+                font-size: 30px;
+            }
+            figure{
+                border: 1px solid orchid;
+                padding: 20px;
+            }
+            figure, code{
+                font-family: "Sofia", sans-serif;
+            }
+            img {
+                width: 100%;
+            }
+            ul {
+
+            }
+            li{
+                padding-left: 15px;
+                margin-left: 10px;
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+
+        <h1>Bienvenue sur mon site</h1>
+        <p>Bonjour et bienvenue ! Ceci est ma page HTML. Elle contient un titre de premier niveau, un paragraphe, une image avec son <code class="font-effect-neon">alternative text</code> et une liste à puces de 3 éléments.</p>
+        <img src="https://fastly.picsum.photos/id/237/536/354.jpg?hmac=i0yVXW1ORpyCZpQ-CknuyV-jbtU7_x9EBQVhvT5aRr0" alt="Une image d'un chien mignon">
+        <ul>
+            <li>h1</li>
+            <li>p</li>
+            <li>alt</li>
+        </ul>
+        <figure class="font-effect-neon">
+            <img src="https://fastly.picsum.photos/id/237/536/354.jpg" alt="Une image d'un chien mignon">
+        </figure>
+
+        <h2>
+            À quoi sert l'alternative textuelle d'une image? 
+        </h2>
+        <p>
+            L’<b>alternative textuelle</b> (ou texte alternatif, <em>en anglais, alternative text</em>) est la retranscription écrite d’un contenu graphique intégré à une page web. Il s’agit d’<b>un court texte qui décrit ce que représente l’image</b>. Cette information, ajoutée dans le code <code class="font-effect-neon">html</code> avec l’attribut <code class="font-effect-neon">alt</code>, favorise l’accessibilité et le référencement du site web.
+        </p>
+
+
+
+        <h3>
+            <code class="font-effect-fire">Obligatoire</code>, l'attribut <code class="font-effect-neon">alt</code> de la balise <code class="font-effect-neon">img</code> favorise l’accessibilité des contenus web
+        </h3>
+        <p>
+            Une alternative textuelle correctement renseignée permet aux machines de repérer et de lire l’information contenue dans l’image (ce qui n’est pas possible avec une image simple, sans information sous format textuel).
+            <br>
+            Cette information écrite permet donc à des outils ou des aides techniques de « traduire » l’image à destination des utilisateurs qui ne la voient pas pour diverses raisons :
+        </p>
+        <ul>
+            <li>
+                Soit parce que ce sont des personnes avec un profil visuel spécifique (<code class="font-effect-outline">malvoyants, aveugles, daltoniens</code>, etc.) et qu’ils utilisent un navigateur web à synthèse vocale ou une plage braille
+            </li>
+            <li>
+                Soit parce que la connexion internet est mauvaise et que l’image ne s’affiche pas à l’écran (<code class="font-effect-shadow-multiple">bas débit, zones blanches</code>, téléphones portables, etc.)
+            </li>
+            <li>
+                Soit parce qu’iels ont <code class="font-effect-emboss">désactivé l’affichage des images</code> volontairement (navigateur texte, messagerie, etc.) 
+            </li>
+        </ul>
+    </body>
+</html>
